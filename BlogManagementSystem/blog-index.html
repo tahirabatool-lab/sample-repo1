@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Management System</title>
+    <link rel="stylesheet" href="blog-style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✍️ Blog Management System</h1>
+            <p>Create, edit, and manage your blog posts</p>
+        </div>
+
+        <div id="notification" class="notification"></div>
+
+        <div class="main-content">
+            <!-- Create/Edit Post Section -->
+            <div class="card post-editor">
+                <h2 id="editorTitle">📝 Create New Post</h2>
+                <form id="postForm">
+                    <input type="hidden" id="postId">
+                    
+                    <div class="form-group">
+                        <label for="postTitle">Post Title</label>
+                        <input type="text" id="postTitle" required placeholder="Enter your post title...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postAuthor">Author</label>
+                        <input type="text" id="postAuthor" required placeholder="Your name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postCategory">Category</label>
+                        <select id="postCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Food">Food</option>
+                            <option value="Business">Business</option>
+                            <option value="Health">Health</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postContent">Content</label>
+                        <textarea id="postContent" required placeholder="Write your blog post content here..." rows="10"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="postTags">Tags (comma separated)</label>
+                        <input type="text" id="postTags" placeholder="e.g., coding, tutorial, javascript">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary" id="submitBtn">
+                            <span id="submitBtnText">Publish Post</span>
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn" style="display: none;">
+                            Cancel
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Blog Posts List -->
+            <div class="card posts-list">
+                <div class="list-header">
+                    <h2>📚 All Posts</h2>
+                    <div class="search-filter">
+                        <input type="text" id="searchInput" placeholder="🔍 Search posts...">
+                        <select id="filterCategory">
+                            <option value="">All Categories</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Lifestyle">Lifestyle</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Food">Food</option>
+                            <option value="Business">Business</option>
+                            <option value="Health">Health</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <span class="stat-label">Total Posts:</span>
+                        <span class="stat-value" id="totalPosts">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Published:</span>
+                        <span class="stat-value" id="publishedPosts">0</span>
+                    </div>
+                </div>
+
+                <div id="postsContainer">
+                    <div class="empty-state">
+                        <p>📭 No blog posts yet. Create your first post!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="blog-script.js"></script>
+</body>
+</html>
